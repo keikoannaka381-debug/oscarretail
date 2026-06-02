@@ -1912,6 +1912,67 @@ margin-bottom:8px;
   letter-spacing:.08em;
 }
 
+/* recruit page visual responsive */
+
+@media(max-width:768px){
+
+  .recruitpage-visual{
+    height:360px;
+
+    /* 人物を右側に寄せて見せる */
+    background-position:68% center;
+    background-size:cover;
+  }
+
+  .recruitpage-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+      90deg,
+      rgba(255,255,255,.88) 0%,
+      rgba(255,255,255,.62) 38%,
+      rgba(255,255,255,.22) 65%,
+      rgba(255,255,255,0) 100%
+    );
+  }
+
+  .recruitpage-visual h1{
+    font-size:34px;
+  }
+
+  .recruitpage-visual p{
+    font-size:12px;
+  }
+
+  .recruitpage-visual h2{
+    font-size:16px;
+    line-height:1.8;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .recruitpage-visual{
+    height:420px;
+
+    /* 数字を大きくすると右側が見える */
+    background-position:75% center;
+  }
+
+  .recruitpage-visual h1{
+    font-size:30px;
+  }
+
+  .recruitpage-visual h2{
+    font-size:15px;
+  }
+
+}
+
+
 /* 働く環境 */
 
 .recruit-point{
