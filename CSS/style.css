@@ -114,20 +114,35 @@
 .hero{
   position:relative;
   height:650px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
 
-  background-image:url("../images/mv.png");
+.hero-slider,
+.hero-slider .slick-list,
+.hero-slider .slick-track,
+.hero-slide{
+  height:100%;
+}
+
+.hero-slider{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+
+.hero-slide{
   background-size:cover;
   background-position:center right;
   background-repeat:no-repeat;
-
-  display:flex;
-  align-items:center;
 }
 
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
+  z-index:1;
 
   background:linear-gradient(
     90deg,
@@ -140,12 +155,20 @@
 
 .hero-content{
   position:relative;
-  z-index:1;
-
+  z-index:2;
   width:min(1200px, 92%);
   margin:0 auto;
 
   padding-left:60px;
+}
+
+/* 3dots */
+.hero .slick-dots{
+  position:absolute;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3;
 }
 
 /* label */
@@ -167,7 +190,7 @@
 /* title */
 
 .hero h1{
-  font-size:58px;
+  font-size:55px;
   line-height:1.3;
 
   color:#111;
@@ -493,7 +516,7 @@
     .store-card{
       border:1px solid #ddd;
       background:#fff;
-      padding:30px 20px;
+      padding:40px 20px;
       text-align:center;
       transition:.3s;
     }
@@ -535,7 +558,7 @@
   }
 
   .store-card{
-    padding:24px 16px;
+    padding:30px 16px;
   }
 
   .store-card img{
@@ -562,6 +585,45 @@
 
   .store-card img{
     height:32px;
+  }
+
+}
+/* ======================
+      OPEN SOON
+    ====================== */
+
+.store-card{
+  position:relative;
+}
+
+.coming-badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+
+  background:#0c234d;
+  color:#fff;
+
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.08em;
+
+  padding:4px 10px;
+  border-radius:20px;
+}
+
+.store-card.is-coming{
+  opacity:.75;
+  pointer-events:none;
+}
+
+@media(max-width:768px){
+
+  .coming-badge{
+    top:10px;
+    right:10px;
+    font-size:7px;
+    padding:3px 8px;
   }
 
 }
@@ -648,12 +710,58 @@
 .concept-section{
   position:relative;
   overflow:hidden;
-  height:360px;
+  height:480px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #eef4fb 0%,
+      rgba(238,244,251,.98) 22%,
+      rgba(238,244,251,.85) 36%,
+      rgba(238,244,251,.55) 50%,
+      rgba(238,244,251,.22) 66%,
+      rgba(238,244,251,0) 82%
+    ),
+    url("../images/concept-bg2.png");
+
+  background-repeat:no-repeat;
+  background-size:100% auto;
+  background-position:right center;
 }
 
-/* 背景画像 */
+/* Tablet */
+@media (max-width:1024px){
+
+  .concept-section{
+    height:420px;
+
+    background-size:140% auto;
+    background-position:center center;
+  }
+
+}
+/* Mobile */
+@media(max-width:768px){
+
+  .concept-section{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(238,244,251,.70) 0%,
+        rgba(238,244,251,.68) 45%,
+        rgba(238,244,251,.62) 100%
+      ),
+      url("../images/concept-bg2.png");
+
+    background-size:cover;
+    background-position:right top;
+  }
+
+}
+/* 背景画像
 
 .concept-bg{
+transform:scale(1.03);
   position:absolute;
   inset:0;
 
@@ -664,22 +772,17 @@
   object-position:right center;
 }
 
-/* 白グラデ */
-
 .concept-overlay{
-  position:absolute;
-  inset:0;
-
-   background:linear-gradient(
+  background:linear-gradient(
     90deg,
-    rgba(250,250,250,1) 0%,
-    rgba(250,250,250,1) 42%,
-    rgba(250,250,250,.9) 48%,
-    rgba(250,250,250,.35) 58%,
-    rgba(250,250,250,.08) 68%,
-    rgba(250,250,250,0) 78%
+    rgba(238,244,251,1) 0%,
+    rgba(238,244,251,.95) 25%,
+    rgba(238,244,251,.75) 45%,
+    rgba(238,244,251,.35) 65%,
+    rgba(238,244,251,.08) 85%,
+    rgba(238,244,251,0) 100%
   );
-}
+} */ 
 
 /* 中身 */
 
@@ -1214,24 +1317,267 @@
   }
 
 }
-
 /* ======================
-   business responsive
+   CONTACT TYPE
 ====================== */
 
-@media(max-width:768px){
+.contact-type-section{
+  margin-bottom:70px;
+  text-align:center;
+}
 
-  .business-page-card{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
+.contact-type-title{
+  font-size:22px;
+  color:#0c234d;
+  margin-bottom:32px;
+  position:relative;
+}
 
-  .business-page-img{
-    width:100%;
-    min-height:220px;
+.contact-type-title::after{
+  content:"";
+  display:block;
+  width:34px;
+  height:2px;
+  background:#0c234d;
+  margin:12px auto 0;
+}
+
+.contact-type-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.contact-type-card{
+  position:relative;
+  border:1px solid #ddd;
+  padding:34px 20px;
+  background:#fff;
+  cursor:pointer;
+  transition:.3s;
+  text-align:center;
+}
+
+.contact-type-card input{
+  position:absolute;
+  top:18px;
+  left:18px;
+}
+
+.contact-type-card.active{
+  background:#0c234d;
+  color:#fff;
+  border-color:#0c234d;
+}
+
+.contact-type-card.active h3,
+.contact-type-card.active p{
+  color:#fff;
+}
+.contact-type-card:hover h3,
+.contact-type-card:hover p{
+  color:#fff;
+}
+
+.contact-type-card h3{
+  font-size:18px;
+  color:#0c234d;
+  margin-bottom:10px;
+}
+
+.contact-type-card p{
+  font-size:13px;
+  color:#555;
+  line-height:1.7;
+}
+
+/* アイコンサイズ統一 */
+
+.contact-type-icon{
+  height:80px;
+  margin:0 auto 24px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.contact-type-icon img{
+  height:60px;
+  width:auto;
+  display:block;
+}
+
+.contact-type-note{
+  margin-top:22px;
+  font-size:13px;
+  color:#555;
+}
+
+.contact-type-card img{
+  filter:none;
+}
+
+.contact-type-card:hover img,
+.contact-type-card.is-active img{
+  filter:brightness(0) invert(1);
+}
+
+
+@media(max-width:900px){
+
+  .contact-type-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
+
+@media(max-width:600px){
+
+  .contact-type-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-type-card{
+    padding:28px 20px;
+  }
+
+}
+.contact-form-title{
+  font-size:24px;
+  color:#0c234d;
+  margin-bottom:28px;
+  position:relative;
+}
+
+.contact-form-title::after{
+  content:"";
+  display:block;
+  width:40px;
+  height:2px;
+  background:#0c234d;
+  margin-top:10px;
+}
+
+.privacy-check{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:30px;
+}
+
+.contact-submit{
+  display:flex;
+  justify-content:center;
+  margin-top:25px;
+}
+
+.contact-submit button{
+  width:360px;
+  height:58px;
+
+  background:#0c234d;
+  color:#fff;
+
+  border:none;
+  cursor:pointer;
+
+  font-size:15px;
+  font-weight:700;
+}
+
+.contact-tel-box{
+  margin:50px auto 0;
+  width:100%;
+  border:1px solid #ddd;
+  padding:28px 70px;
+
+  display:grid;
+  grid-template-columns:1fr 1px 1fr;
+  align-items:center;
+  gap:50px;
+}
+
+.tel-info{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:22px;
+}
+
+.tel-icon{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+
+.tel-title{
+  font-size:16px;
+  font-weight:700;
+  color:#0c234d;
+  margin-bottom:6px;
+  white-space:nowrap;
+}
+
+.tel-time{
+  font-size:13px;
+  color:#555;
+  white-space:nowrap;
+}
+
+.tel-divider{
+  width:1px;
+  height:64px;
+  background:#ddd;
+}
+
+.tel-number{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+
+  font-size:32px;
+  font-weight:700;
+  color:#0c234d;
+  white-space:nowrap;
+}
+
+.tel-number-icon{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+
+/* responsive */
+
+@media(max-width:768px){
+
+  .contact-tel-box{
+    grid-template-columns:1fr;
+    gap:24px;
+    padding:28px 24px;
+    text-align:center;
+  }
+
+  .tel-info{
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .tel-divider{
+    width:100%;
+    height:1px;
+  }
+
+  .tel-number{
+    font-size:24px;
+  }
+
+}
+
+
     
 /* =========================
    下層ページ共通
@@ -1398,6 +1744,21 @@
   background:#f7f8fa;
   color:#0c234d;
   font-weight:700;
+}
+
+.company-map-link{
+  display:inline-block;
+  margin-top:8px;
+
+  color:#0c234d;
+  font-size:14px;
+  font-weight:600;
+
+  text-decoration:none;
+}
+
+.company-map-link:hover{
+  text-decoration:underline;
 }
 
 /* グループ会社 */
@@ -1660,10 +2021,16 @@
   background:#fff;
 }
 
-.business-page-img,
-.recruit-img{
-  min-height:220px;
-  background:#eef2f6;
+.business-page-img{
+  overflow:hidden;
+  border-radius:4px;
+}
+
+.business-page-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .business-page-card h3{
@@ -1688,7 +2055,6 @@
 
   .business-page-img{
     width:100%;
-    min-height:220px;
   }
 
 }
@@ -1713,6 +2079,25 @@
   }
 
 }
+
+/* ======================
+   business responsive
+====================== */
+
+@media(max-width:768px){
+
+  .business-page-card{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .business-page-img{
+    width:100%;
+    min-height:220px;
+  }
+
+}
+
 /* ======================
    page visual responsive
 ====================== */
@@ -1815,6 +2200,17 @@
   line-height:2;
   text-align:left;
 }
+.brand-catch{
+  font-size:20px;
+  font-weight:700;
+  color:#0c234d;
+
+  border-left:3px solid #0c234d;
+  padding-left:12px;
+
+  margin-bottom:16px;
+  line-height:1.5;
+}
 
 /* responsive */
 
@@ -1829,34 +2225,96 @@
 /* news */
 
 .news-page-list{
-  border-top:1px solid #ddd;
+  display:grid;
+  gap:32px;
 }
 
 .news-page-item{
   display:grid;
-  grid-template-columns:140px 100px 1fr;
-  gap:20px;
+  grid-template-columns:300px 1fr;
+  gap:32px;
   align-items:center;
-  padding:24px 0;
-  border-bottom:1px solid #eee;
+
+  padding:28px;
+  border:1px solid #e5e5e5;
+  background:#fff;
+}
+
+.news-page-img{
+  overflow:hidden;
+  background:#eef2f6;
+}
+
+.news-page-img img{
+  width:100%;
+  aspect-ratio:16 / 9;
+  object-fit:cover;
+  display:block;
+}
+
+.news-meta{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:14px;
 }
 
 .news-date{
   color:#333;
+  font-size:14px;
 }
 
 .news-label{
   background:#0c234d;
   color:#fff;
-  text-align:center;
   font-size:12px;
-  padding:4px 10px;
+  padding:4px 12px;
 }
 
 .news-title{
-  color:#222;
+  font-size:22px;
+  color:#0c234d;
+  margin-bottom:12px;
 }
 
+.news-page-body p{
+  font-size:14px;
+  line-height:2;
+  color:#555;
+}
+
+.news-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:12px;
+
+  color:#0c234d;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.news-link span{
+  transition:.3s;
+}
+
+.news-link:hover span{
+  transform:translateX(4px);
+}
+
+@media(max-width:768px){
+
+  .news-page-item{
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:22px;
+  }
+
+  .news-title{
+    font-size:20px;
+  }
+
+}
 /* recruit */
 
 .company-section-title.center{
@@ -1971,7 +2429,6 @@ margin-bottom:8px;
   }
 
 }
-
 
 /* 働く環境 */
 
