@@ -65,13 +65,67 @@
 <section class="sub-section">
   <div class="container contact-layout">
 
-    <div class="contact-lead">
-      <h2>商品・お取引に関する<br>お問い合わせはこちら</h2>
-      <p>
-        商品のお取引、卸売、採用、その他ご相談については、
-        下記フォームよりお気軽にお問い合わせください。
-      </p>
+   <div class="contact-type-section">
+
+  <h2 class="contact-type-title">
+    お問い合わせ内容を選択してください
+  </h2>
+
+ <div class="contact-type-grid">
+
+  <label class="contact-type-card active">
+    <input type="radio" name="contact_type" checked>
+
+    <div class="contact-type-icon">
+      <img src="images/torihiki.png" alt="取引について">
     </div>
+
+    <h3>取引について</h3>
+    <p>商品仕入れ・卸売・協業など</p>
+  </label>
+
+  <label class="contact-type-card">
+    <input type="radio" name="contact_type">
+
+    <div class="contact-type-icon">
+      <img src="images/kyuujinn.png" alt="求人について">
+    </div>
+
+    <h3>求人について</h3>
+    <p>採用・求人に関するお問い合わせ</p>
+  </label>
+
+  <label class="contact-type-card">
+    <input type="radio" name="contact_type">
+
+    <div class="contact-type-icon">
+      <img src="images/media.png" alt="メディア関係者の方">
+    </div>
+
+    <h3>メディア関係者の方</h3>
+    <p>取材・掲載・プレスリリースなど</p>
+  </label>
+
+  <label class="contact-type-card">
+    <input type="radio" name="contact_type">
+
+    <div class="contact-type-icon">
+      <img src="images/other.png" alt="その他のお問い合わせ">
+    </div>
+
+    <h3>その他のお問い合わせ</h3>
+    <p>上記以外のお問い合わせ</p>
+  </label>
+
+</div>
+
+  <p class="contact-type-note">
+    お問い合わせの内容により、ご返信までにお時間をいただく場合がございます。
+  </p>
+
+</div>
+
+<h2 class="contact-form-title">お問い合わせフォーム</h2>
 
     <form class="contact-form">
 
@@ -95,6 +149,7 @@
         <select>
           <option>選択してください</option>
           <option>商品のお取引について</option>
+		   <option>取材・掲載などについて</option>
           <option>採用について</option>
           <option>その他</option>
         </select>
@@ -104,10 +159,40 @@
         お問い合わせ内容
         <textarea placeholder="お問い合わせ内容をご入力ください"></textarea>
       </label>
+	  
+	<label class="privacy-check">
+  <input type="checkbox">
+  <span>
+    <a href="privacy.html">プライバシーポリシー</a>
+    に同意の上、送信します。
+  </span>
+</label>
 
-      <button type="submit">送信する</button>
-
+<div class="contact-submit">
+  <button type="submit">
+    送信する
+  </button>
+</div>
     </form>
+	<div class="contact-tel-box">
+
+  <div class="tel-info">
+    <img src="images/operator_icon.png" alt="" class="tel-icon">
+
+    <div>
+      <p class="tel-title">お急ぎの場合はお電話でも承っております。</p>
+      <p class="tel-time">受付時間：平日 10:00〜18:00（土日祝日を除く）</p>
+    </div>
+  </div>
+
+  <div class="tel-divider"></div>
+
+  <a href="tel:0345109609" class="tel-number">
+    <img src="images/tell_icon.png" alt="" class="tel-number-icon">
+    <span>03-4510-9609</span>
+  </a>
+
+</div>
 
   </div>
 </section>
@@ -126,6 +211,7 @@
 		  <p>
             〒107-0052 東京都港区赤坂3-11-15 
 			<br>VORT赤坂見附4F
+			<br>TEL : 03-4510-9609
           </p>
         </div>
 
@@ -165,7 +251,7 @@
 
           <ul class="footer-sns">
            <li>
-      <a href="#">
+      <a href="https://www.instagram.com/oscarjapan.inc">
         <img src="images/instagram_icon.png" alt="Instagram">
       </a>
     </li>
@@ -177,7 +263,7 @@
     </li>
 
     <li>
-      <a href="#">
+      <a href="https://www.youtube.com/@Oscar_Japan">
         <img src="images/youtube_icon.png" alt="YouTube">
       </a>
     </li>
@@ -194,5 +280,24 @@
 
   </footer>
 <script src="js/main.js"></script>
+<script>
+
+const cards = document.querySelectorAll('.contact-type-card');
+
+cards.forEach(card => {
+
+  card.addEventListener('click', () => {
+
+    cards.forEach(c => {
+      c.classList.remove('active');
+    });
+
+    card.classList.add('active');
+
+  });
+
+});
+
+</script>
 </body>
 </html>
