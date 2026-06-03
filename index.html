@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-
+  <link rel="stylesheet" href="CSS/slick.css">
+<link rel="stylesheet" href="CSS/slick-theme.css">
+<link rel="stylesheet" href="CSS/style.css">
 
 </head>
 
@@ -55,7 +56,23 @@
 </header>
 
   <!-- HERO -->
-  <section class="hero">
+<section class="hero">
+
+  <div class="hero-slider">
+
+    <div class="hero-slide"
+      style="background-image:url('images/concept-bg.png');">
+    </div>
+
+    <div class="hero-slide"
+      style="background-image:url('images/mv1.jpg');">
+    </div>
+
+    <div class="hero-slide"
+      style="background-image:url('images/mv.png');">
+    </div>
+
+  </div>
 
   <div class="hero-content">
 
@@ -71,7 +88,7 @@
       最新アイテムをお届けします。
     </p>
 
-    <a href="#" class="hero-btn">
+    <a href="news.html" class="hero-btn">
       詳しくはこちら
       <span>〉</span>
     </a>
@@ -115,9 +132,9 @@
     </div>
 
     <div class="news-item">
-      <div class="news-date">2025.04.28</div>
+      <div class="news-date">2026.06.02</div>
       <div class="news-category">取扱開始</div>
-      <p>「BRUNO」シリーズの取扱いを開始しました。</p>
+      <p>ビッグカメラでの取り扱いを開始しました。</p>
     </div>
 
   </div>
@@ -132,7 +149,7 @@
 
     <div class="news-item">
       <div class="news-date">2025.03.28</div>
-      <div class="news-category">お知らせ</div>
+      <div class="news-category news-category-light">お知らせ</div>
       <p>コーポレートサイトをリニューアルしました。</p>
     </div>
 
@@ -162,23 +179,23 @@
 
       <div class="brand-grid">
 
-        <a href="#" class="brand-card">
+        <a href="brands.html" class="brand-card">
           <img src="images/maxevis_logo.png" alt="MAXEVIS">
         </a>
 
-        <a href="#" class="brand-card">
+        <a href="brands.html" class="brand-card">
           <img src="images/wowkids_logo.png" alt="WOWKIDS">
         </a>
 
-        <a href="#" class="brand-card">
+        <a href="brands.html" class="brand-card">
           <img src="images/unico_logo.png" alt="Umedia（UNICO）">
         </a>
 
-        <a href="#" class="brand-card">
+        <a href="brands.html" class="brand-card">
           <img src="images/cornmi_logo.png" alt="CORNMI">
         </a>
 
-        <a href="#" class="brand-card">
+        <a href="brands.html" class="brand-card">
           <img src="images/yuko_logo.png" alt="YUKO">
         </a>
 
@@ -191,7 +208,8 @@
  <!-- MESSAGE -->
 <section class="concept-section">
 
-  <img src="images/concept-bg.png" alt="" class="concept-bg">
+ <!-- 私たちの想い背景
+ <img src="images/concept-bg2.png" alt="" class="concept-bg">-->
 
   <div class="concept-overlay"></div>
 
@@ -241,25 +259,28 @@
 
       <div class="store-grid">
 
-        <a href="#" class="store-card">
+        <a href="javascript:void(0);" class="store-card is-coming">
+		<span class="coming-badge">OPEN SOON</span>
           <img src="images/store.png" alt="">
           <p>公式ストアへ</p>
         </a>
 
-        <a href="#" class="store-card">
+        <a href="https://www.amazon.co.jp/b?node=26286483051&ie=UTF8&marketplaceID=A1VC38T7YXB528&me=A2MOR02J39QCSZ" class="store-card">
           <img src="images/amazon.png" alt="">
           <p>Amazon公式ストアへ</p>
         </a>
 
-        <a href="#" class="store-card">
-          <img src="images/rakuten.png" alt="">
-          <p>楽天市場店へ</p>
-        </a>
+        <a href="javascript:void(0);" class="store-card is-coming">
+  <span class="coming-badge">OPEN SOON</span>
+  <img src="images/rakuten.png" alt="">
+  <p>楽天市場店へ</p>
+</a>
 
-        <a href="#" class="store-card">
-          <img src="images/tiktokshop.png" alt="">
-          <p>TikTok Shopへ</p>
-        </a>
+        <a href="javascript:void(0);" class="store-card is-coming">
+  <span class="coming-badge">OPEN SOON</span>
+  <img src="images/tiktokshop.png" alt="">
+  <p>TikTok Shopへ</p>
+</a>
 
       </div>
 
@@ -395,7 +416,7 @@
 
           <ul class="footer-sns">
            <li>
-      <a href="#">
+      <a href="https://www.instagram.com/oscarjapan.inc">
         <img src="images/instagram_icon.png" alt="Instagram">
       </a>
     </li>
@@ -407,7 +428,7 @@
     </li>
 
     <li>
-      <a href="#">
+      <a href="https://www.youtube.com/@Oscar_Japan">
         <img src="images/youtube_icon.png" alt="YouTube">
       </a>
     </li>
@@ -423,6 +444,29 @@
     </div>
 
   </footer>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/slick.min.js"></script>
+
+<script>
+$(function(){
+
+  $('.hero-slider').slick({
+    autoplay:true,
+    autoplaySpeed:4000,
+    speed:1200,
+    fade:true,
+    arrows:false,
+    dots:true,
+    pauseOnHover:false
+  });
+
+});
+</script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/slick.min.js"></script>
 <script src="js/main.js"></script>
+
+</body>
+</html>
 </body>
 </html>
