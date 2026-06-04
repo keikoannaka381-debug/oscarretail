@@ -1085,7 +1085,12 @@ transform:scale(1.03);
       border-top:1px solid rgba(255,255,255,.1);
       padding-top:30px;
     }
-	
+
+.copy-mark{
+  font-size:1.5em;
+  line-height:1;
+  vertical-align:-0.05em;
+}
 	/* ======================
    footer sns
 ====================== */
